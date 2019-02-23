@@ -7,12 +7,19 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            print("space key was pressed");
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            print("space key was Released");
+        }
     }
 }
