@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LM : MonoBehaviour {
+public class LevelManager : MonoBehaviour {
 
-    public static LM singleton;
+    public static LevelManager singleton;
 
 	// Use this for initialization
 	void Awake () {
@@ -13,7 +13,6 @@ public class LM : MonoBehaviour {
         {
             singleton = this;
             DontDestroyOnLoad(gameObject);
-
         }
         else if (singleton != this)
         {
