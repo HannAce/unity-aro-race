@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class ExitOnClick : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Closes application
+    public void ExitGame()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Application.Quit();
     }
 }
