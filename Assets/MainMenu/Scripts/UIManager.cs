@@ -10,9 +10,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
-
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
-
         hidePaused();
     }
 
@@ -38,7 +36,7 @@ public class UIManager : MonoBehaviour
     // Reloads the level
     public void Reload()
     {
-        LM.ReloadLevel(2);
+        LevelManager.ReloadLevel(2);
     }
     
     // Controls the pausing of the scene
@@ -77,6 +75,6 @@ public class UIManager : MonoBehaviour
     // Loads inputted level
     public void LoadLevel(int level)
     {
-        LM.ReloadLevel(level);
+        LevelManager.ReloadLevel(level);
     }
 }
