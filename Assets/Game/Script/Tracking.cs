@@ -5,11 +5,10 @@ using UnityEngine;
 public class Tracking : MonoBehaviour
 {
     GameObject target;
-    public GameObject explosion;
     public float rotatespeed = 5f;
 
     Quaternion rotateToTarget;
-    Vector3 dir;
+    Vector2 dir;
     Rigidbody2D rb;
     
     // Start is called before the first frame update
@@ -24,7 +23,8 @@ public class Tracking : MonoBehaviour
     {
         dir = (target.transform.position - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        rotateToTarget = Quaternion.Slerp(transform.rotation, rotateToTarget, Time.deltaTime * rotatespeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.AngleAxis(angle,Vector3.forward), Time.deltaTime * rotatespeed);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), Time.deltaTime);
         rb.velocity = new Vector2(dir.x*2,dir.y*2);
     }
 
