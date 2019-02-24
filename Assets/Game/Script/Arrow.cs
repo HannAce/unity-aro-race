@@ -19,9 +19,9 @@ public class Arrow : MonoBehaviour
         Ace enemy = hitInfo.GetComponent<Ace>();
         if (enemy != null)
         {
+            Destroy(gameObject);
             enemy.TakeDamage(damage);
-        }
+        } 
         
-        Destroy(gameObject);
     }
 }
