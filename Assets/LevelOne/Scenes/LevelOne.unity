@@ -721,6 +721,9 @@ Transform:
   m_LocalScale: {x: 25, y: 25, z: 1}
   m_Children:
   - {fileID: 674511729}
+  - {fileID: 1604784205}
+  - {fileID: 2033774142}
+  - {fileID: 1894658965}
   m_Father: {fileID: 1261997697}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -824,7 +827,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70cf46c47fe0c547993ac35816fb4ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  movementSpeed: 3.5
+  groundPoints:
+  - {fileID: 2033774142}
+  - {fileID: 1604784205}
+  - {fileID: 1894658965}
+  groundRadius: 0.2
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 32
+  jumpforce: 350
 --- !u!70 &1077624387
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
