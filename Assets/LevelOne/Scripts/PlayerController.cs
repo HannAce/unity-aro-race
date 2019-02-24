@@ -8,9 +8,26 @@ public class PlayerController : MonoBehaviour
 
     private Animator myAnimator;
 
+    [SerializeField]
     public float movementSpeed;
 
     private bool facingRight;
+
+    [SerializeField]
+    public Transform[] groundPoints;
+
+    [SerializeField]
+    public float groundRadius;
+
+    [SerializeField]
+    public LayerMask whatIsGround;
+
+    private bool isGrounded;
+
+    private bool jump;
+
+    [SerializeField]
+    public float jumpforce;
 
     // Start is called before the first frame update
     void Start()
@@ -20,18 +37,33 @@ public class PlayerController : MonoBehaviour
         myAnimator = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        HandleInput();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
 
+        isGrounded = IsGrounded();
+
         HandleMovement(horizontal);
 
         flip(horizontal);
+
+        ResetValues();
     }
 
     private void HandleMovement(float horizontal)
     {
+        if (isGrounded && jump)
+        {
+            isGrounded = false;
+            myRigidbody.AddForce(new Vector2(0, jumpforce));
+
+        }
 
         myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y);
 
@@ -50,5 +82,38 @@ public class PlayerController : MonoBehaviour
 
             transform.localScale = theScale;
         }
+    }
+
+    private bool IsGrounded()
+    {
+        if(myRigidbody.velocity.y <= 0)
+        {
+            foreach (Transform point in groundPoints)
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(point.position, groundRadius, whatIsGround);
+
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].gameObject != gameObject)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    private void HandleInput()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            jump = true;
+        }
+    }
+
+    private void ResetValues()
+    {
+        jump = false;
     }
 }
