@@ -14,5 +14,9 @@ public class Collect : MonoBehaviour
             Score += 10;
             Destroy(other.gameObject);
         }
+        else if (other.tag == "Floor")
+        {
+            Destroy(gameObject);
+        }
     }
 }
