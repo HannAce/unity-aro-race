@@ -14,7 +14,7 @@ public class Collect : MonoBehaviour
             score = score + 20;
             Destroy(other.gameObject);
         }
-        else if(other.tag == "End")
+        else if (other.tag == "End")
         {
             Destroy(other.gameObject);
             GameObject.FindWithTag("Floor").transform.position += transform.up * score * Time.deltaTime;
