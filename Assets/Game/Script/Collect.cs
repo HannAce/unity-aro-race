@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Collect : MonoBehaviour
 {
-    public int Score = 0;
+    public int counter = 0;
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Flag")
         {
-            Score += 10;
+            counter++;
             Destroy(other.gameObject);
         }
         else if (other.tag == "Floor")

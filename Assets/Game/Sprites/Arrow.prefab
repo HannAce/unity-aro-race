@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5951834686632453604}
   - component: {fileID: 5951834686632453605}
   - component: {fileID: 1747919184052815653}
+  - component: {fileID: 9135742889743781455}
   m_Layer: 10
   m_Name: Arrow
   m_TagString: Untagged
@@ -158,4 +159,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   damage: 10
-  rb: {fileID: 0}
+  rb: {fileID: 5951834686632453611}
+--- !u!95 &9135742889743781455
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951834686632453600}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9604111872099b2438ff8a29d0af6a05, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
