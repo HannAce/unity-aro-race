@@ -17,7 +17,7 @@ public class Collect : MonoBehaviour
         else if(other.tag == "End")
         {
             Destroy(other.gameObject);
-            GameObject.FindWithTag("Fly").transform.position += transform.up * score * Time.deltaTime;
+            GameObject.FindWithTag("Floor").transform.position += transform.up * score * Time.deltaTime;
         }
     }
 }
