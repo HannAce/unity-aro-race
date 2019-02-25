@@ -53,15 +53,23 @@ public class PlayerController : MonoBehaviour
 
         flip(horizontal);
 
+        HandleLayers();
+
         ResetValues();
     }
 
     private void HandleMovement(float horizontal)
     {
+        if (myRigidbody.velocity.y < 0)
+        {
+            myAnimator.SetBool("land", true);
+        }
+
         if (isGrounded && jump)
         {
             isGrounded = false;
             myRigidbody.AddForce(new Vector2(0, jumpforce));
+            myAnimator.SetTrigger("jump");
 
         }
 
@@ -96,6 +104,8 @@ public class PlayerController : MonoBehaviour
                 {
                     if (colliders[i].gameObject != gameObject)
                     {
+                        myAnimator.ResetTrigger("jump");
+                        myAnimator.SetBool("land", false);
                         return true;
                     }
                 }
@@ -110,10 +120,30 @@ public class PlayerController : MonoBehaviour
         {
             jump = true;
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            jump = true;
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            jump = true;
+        }
     }
 
     private void ResetValues()
     {
         jump = false;
+    }
+
+    private void HandleLayers()
+    {
+        if(!isGrounded)
+        {
+            myAnimator.SetLayerWeight(1, 1);
+        }
+        else
+        {
+            myAnimator.SetLayerWeight(1, 0);
+        }
     }
 }

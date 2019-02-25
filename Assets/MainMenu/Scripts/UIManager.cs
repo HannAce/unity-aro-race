@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    GameObject[] pauseObjects;
+    //GameObject[] pauseObjects;
     
     // Use this for initialization
-    void Start()
+    /*(void Start()
     {
         Time.timeScale = 1;
         pauseObjects = GameObject.FindGameObjectsWithTag("ShowOnPause");
@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
                 hidePaused();
             }
         }
-    }
+    }*/
 
     // Reloads the level
     public void Reload()
@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     }
     
     // Controls the pausing of the scene
-    public void pauseControl()
+    /*public void pauseControl()
     {
         if (Time.timeScale == 1)
         {
@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
         {
             g.SetActive(false);
         }
-    }
+    }*/
     
     // Loads inputted level
     public void LoadLevel(int level)
